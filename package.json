@@ -1,0 +1,23 @@
+{
+  "name": "angular-js-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geforcesong/angular-js-playground.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/geforcesong/angular-js-playground/issues"
+  },
+  "homepage": "https://github.com/geforcesong/angular-js-playground#readme",
+  "dependencies": {
+    "angular": "^1.8.2",
+    "angular-route": "^1.8.2"
+  }
+}
