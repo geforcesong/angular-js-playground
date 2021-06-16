@@ -1,3 +1,17 @@
 <div>
     {{message}}
+    <button ng-click="order='name'">Sort by Name</button>
+    <button ng-click="order='score'">Sort by Score</button>
+    <input type="text" ng-model="search" placeholder="Search for Ninja">
+    <ul>
+        <li ng-repeat="ninja in ninjas | orderBy: order | filter: search">{{ninja.name}}, {{ninja.score}} <button ng-click="removeNinja(ninja)">delete</button></li>
+    </ul>
+
+    <br />
+    <form ng-submit="addNinja()">
+        <input type="text" placeholder="name" ng-model="newNinja.name" />
+        <input type="text" placeholder="belt" ng-model="newNinja.belt" />
+        <input type="text" placeholder="score" ng-model="newNinja.score" />
+        <input type="submit" value="add new ninja" />
+    </form>
 </div>

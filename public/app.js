@@ -17,6 +17,42 @@
             $scope.name = 'ChapterController';
             $scope.params = $routeParams;
             $scope.message = 'This is directory page';
+            $scope.removeNinja = (ninja) => {
+                console.log(ninja);
+                if ($scope.ninjas.includes(ninja)) {
+                    $scope.ninjas = $scope.ninjas.filter(c => c != ninja);
+                }
+            }
+
+            $scope.addNinja = () => {
+                $scope.ninjas.push({
+                    name: $scope.newNinja.name,
+                    belt: $scope.newNinja.belt,
+                    score: $scope.newNinja.score
+                });
+                $scope.newNinja.name = '';
+                $scope.newNinja.belt = '';
+                $scope.newNinja.score = '';
+            }
+
+            $scope.ninjas = [{
+                name: 'George',
+                belt: 'Black',
+                score: 12
+            }, {
+                name: 'Mario',
+                belt: 'White',
+                score: 34
+            }, {
+                name: 'Yoshi',
+                belt: 'Yellow',
+                score: 66
+            },
+            {
+                name: 'Andy',
+                belt: 'Pink',
+                score: 56
+            }];
         })
 
         .config(function ($routeProvider, $locationProvider) {
