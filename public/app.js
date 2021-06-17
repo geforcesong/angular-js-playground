@@ -8,9 +8,10 @@
             $scope.$routeParams = $routeParams;
         })
 
-        .controller('BookController', function ($scope, $routeParams) {
-            $scope.name = 'BookController';
+        .controller('HomeController', function ($scope, $routeParams) {
+            $scope.name = 'HomeController';
             $scope.params = $routeParams;
+            $scope.homeMessage = 'Hi from Home message';
         })
 
         .controller('ChapterController', function ($scope, $routeParams, $http) {
@@ -40,12 +41,24 @@
                 $scope.ninjas = data.data;
             })
         })
+        .directive('randomNinja',function(){
+            return {
+                restrict: 'E',
+                scope: {
+                    title: '='
+                },
+                template: "<h2>{{ title }} {{random}}</h2>",
+                controller: function($scope){
+                    $scope.random =100;
+                }
+            }
+        })
 
         .config(function ($routeProvider, $locationProvider) {
             $routeProvider
                 .when('/', {
                     templateUrl: 'views/home.html',
-                    controller: 'BookController'
+                    controller: 'HomeController'
                 })
                 .when('/directory', {
                     templateUrl: 'views/directory.html',
