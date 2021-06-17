@@ -8,6 +8,13 @@
             $scope.$routeParams = $routeParams;
         })
 
+        .controller('ContactController', function ($scope, $route, $routeParams, $location) {
+            $scope.$route = $route;
+            $scope.$location = $location;
+            $scope.$routeParams = $routeParams;
+            $scope.message = 'Contact Form From Contact Controller'
+        })
+
         .controller('HomeController', function ($scope, $routeParams) {
             $scope.name = 'HomeController';
             $scope.params = $routeParams;
@@ -47,7 +54,9 @@
                 scope: {
                     title: '='
                 },
-                template: "<h2>{{ title }} {{random}}</h2>",
+                templateUrl: 'views/randomNinja.html',
+                transclude: true,
+                replace: true,
                 controller: function($scope){
                     $scope.random =100;
                 }
@@ -59,6 +68,10 @@
                 .when('/', {
                     templateUrl: 'views/home.html',
                     controller: 'HomeController'
+                })
+                .when('/contact',{
+                    templateUrl: 'views/contactform.html',
+                    controller: 'ContactController'
                 })
                 .when('/directory', {
                     templateUrl: 'views/directory.html',
