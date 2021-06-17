@@ -1,0 +1,27 @@
+[
+    {
+        "name": "George",
+        "belt": "Black",
+        "score": 12
+    },
+    {
+        "name": "Mario",
+        "belt": "White",
+        "score": 34
+    },
+    {
+        "name": "Yoshi",
+        "belt": "Yellow",
+        "score": 66
+    },
+    {
+        "name": "Andy",
+        "belt": "Pink",
+        "score": 56
+    },
+    {
+        "name": "Robort",
+        "belt": "Orange",
+        "score":89
+    }
+]

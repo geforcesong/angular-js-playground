@@ -13,10 +13,11 @@
             $scope.params = $routeParams;
         })
 
-        .controller('ChapterController', function ($scope, $routeParams) {
+        .controller('ChapterController', function ($scope, $routeParams, $http) {
             $scope.name = 'ChapterController';
             $scope.params = $routeParams;
             $scope.message = 'This is directory page';
+            
             $scope.removeNinja = (ninja) => {
                 console.log(ninja);
                 if ($scope.ninjas.includes(ninja)) {
@@ -35,35 +36,22 @@
                 $scope.newNinja.score = '';
             }
 
-            $scope.ninjas = [{
-                name: 'George',
-                belt: 'Black',
-                score: 12
-            }, {
-                name: 'Mario',
-                belt: 'White',
-                score: 34
-            }, {
-                name: 'Yoshi',
-                belt: 'Yellow',
-                score: 66
-            },
-            {
-                name: 'Andy',
-                belt: 'Pink',
-                score: 56
-            }];
+            $http.get('data/ninjas.json').then((data)=>{
+                $scope.ninjas = data.data;
+            })
         })
 
         .config(function ($routeProvider, $locationProvider) {
             $routeProvider
-                .when('/home', {
+                .when('/', {
                     templateUrl: 'views/home.html',
                     controller: 'BookController'
                 })
                 .when('/directory', {
                     templateUrl: 'views/directory.html',
                     controller: 'ChapterController'
+                }).otherwise({
+                    redirectTo: '/'
                 });
 
             $locationProvider.html5Mode(true);
